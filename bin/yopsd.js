@@ -84,16 +84,11 @@ function extractAllFromFile(filepath, psdPromise, cb) {
       console.log(chalk.red.bold(err));
     });
 
-    console.log(psd.tree().export());
-    console.log("export");
-    /*
     psd.tree().export().children.forEach(function(child) {
-
       var layer = new PSDLayer([], child);
       var html = layer.extractAll();
     });
-    */    
-
+  
     fileString += '</div>';
 
     fs.writeFile(fileHtml, fileString, function(err) {
