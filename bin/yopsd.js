@@ -76,9 +76,9 @@ function extractAllFromFile(filepath, psdPromise, cb) {
   var fileText = filepath.replace(/\.psd$/, '.php');
   var fileString = '';
 
-  console.log(psd.tree().export());
-
   psdPromise.then(function(psd) {
+    console.log(psd.tree().export());
+
     psd.tree().export().children.forEach(function(child) {
 
       var layer = new PSDLayer([], child);
