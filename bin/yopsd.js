@@ -219,7 +219,7 @@ function PSDLayer(path, element) {
       var text = [];
 
       if (typeof element.text !== 'undefined' && element.text !== undefined) {
-        console.log('\n<p>' + t.text.replace(/\r/g, '\n') + '</p>');
+        console.log('\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>');
 
         text.push({
           path: self.path,
