@@ -72,7 +72,7 @@ function extractTextFromFile(filepath, psdPromise, cb) {
   });
 }
 
-// extract PNG from PSD file
+// extract All from PSD file
 function extractAllFromFile(filepath, psdPromise, cb) {
 
   var fileHtml = filepath.replace(/\.psd$/, '/index.php');
@@ -99,7 +99,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
 
       console.log(chalk.gray("HTML saved to %s"), fileHtml);
       filesProcessed.push(fileHtml);
-      cb(null, fileText);
+      cb(null, fileHtml);
     });
   });
 }
