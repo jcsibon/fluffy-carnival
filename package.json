@@ -1,6 +1,6 @@
 {
   "name": "yopsd",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Convert to PNG and extract text from Photoshop files using the CLI",
   "author": "Simon Tarchichi <kartsims@gmail.com>",
   "bin": {
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kartsims/psd-cli"
+    "url": "https://github.com/jcsibon/fluffy-carnival"
   },
   "bugs": {
-    "url": "https://github.com/kartsims/psd-cli/issues"
+    "url": "https://github.com/jcsibon/fluffy-carnival/issues"
   },
   "keywords": [
     "psd",

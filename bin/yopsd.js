@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+console.log("hello");
+
 var PSD = require('psd');
 var program = require('commander');
 var cp = require('child_process');
