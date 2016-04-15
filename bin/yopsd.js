@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-console.log("hello");
-
 var PSD = require('psd');
 var program = require('commander');
 var cp = require('child_process');
@@ -24,6 +22,7 @@ program
   .action(processFiles)
   .parse(process.argv);
 
+console.log("hhdfsjk");
 // save PNG
 function convertFile(filepath, psdPromise, cb) {
   var filePng = filepath.replace(/\.psd$/, '.png');
