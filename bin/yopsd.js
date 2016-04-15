@@ -223,7 +223,8 @@ function PSDLayer(path, element) {
 
         text.push({
           path: self.path,
-          text: element.text.value || null,
+          text: '\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>',
+//        text: element.text.value || null,
         });
       }
 
