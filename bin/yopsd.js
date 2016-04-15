@@ -237,7 +237,7 @@ function PSDLayer(path, element) {
         var n = d.getTime();
 
         console.log("yo");
-        element.saveAsPng("./output/" + node.name + ".png").catch(function (err) {
+        element.saveAsPng("./output/" + element.name + ".png").catch(function (err) {
           console.log(err.stack);
         });
         console.log("yop");
