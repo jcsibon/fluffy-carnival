@@ -221,13 +221,30 @@ function PSDLayer(path, element) {
       return text;
     },
     extractAll: function() {
-      var text = [];
+      var html = [];
+
+      element
 
       if (typeof element.text !== 'undefined' && element.text !== undefined) {
         console.log('\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>');
 
-        text.push({
+        var d = new Date();
+        var n = d.getTime();
+
+        element.saveAsPng(filepath.replace(/\.psd$/, n + '.png'));
+
+        html.push({
           path: self.path,
+          visible: self.visible,
+          opacity: self.opacity,
+          blendingMode: self.blendingMode,
+          name: self.name,
+          left: self.left,
+          right: self.right,
+          top: self.top,
+          bottom: self.bottom,
+          height: self.height,
+          width: self.width,
           html: '\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>',
 //        text: element.text.value || null,
         });
@@ -243,7 +260,7 @@ function PSDLayer(path, element) {
         });
       }
 
-      return text;
+      return html;
     }
   }
 }
