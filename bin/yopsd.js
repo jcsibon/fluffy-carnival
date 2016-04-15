@@ -83,12 +83,13 @@ function extractAllFromFile(filepath, psdPromise, cb) {
     mkdirp(filepath.replace(/\.psd$/, ''), function(err) { 
       console.log(chalk.red.bold(err));
     });
+console.log("hello");
 
     psd.tree().export().children.forEach(function(child) {
       var layer = new PSDLayer([], child);
       var html = layer.extractAll();
 
-console.log("hello");
+
       html.forEach(function(t) {
         fileString += t.html;
       });
