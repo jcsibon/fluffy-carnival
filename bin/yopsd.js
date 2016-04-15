@@ -17,7 +17,7 @@ program
   .arguments('<file...>')
   .option('-c, --convert', 'Convert to PNG file named <FILENAME>.png')
   .option('-t, --extracttext', 'Extract txt content to <FILENAME>/<FILENAME>.txt')
-  .option('-p, --extractpng', 'Extract png content to <FILENAME>/<LAYERNAME>.png')  
+  .option('-a, --extractall', 'Extract png content to <FILENAME>/<LAYERNAME>.png')  
   .option('-o, --open', 'Preview file after conversion (triggers -c option)')
   .action(processFiles)
   .parse(process.argv);
@@ -136,9 +136,9 @@ function processFiles(files, env) {
       });
     }
     // extract Png data
-    if (program.extractpng) {
+    if (program.extractall) {
       asyncTasks.push(function(cb) {
-        extractPngFromFile(filepath, psdPromise, cb);
+        extractAllFromFile(filepath, psdPromise, cb);
       });
     }
 
