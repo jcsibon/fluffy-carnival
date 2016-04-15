@@ -8,9 +8,6 @@ var file = process.argv[2] || './examples/images/example.psd';
 var path = file.replace(/\.psd$/, '');
 var start = new Date();
 
-
-
-
 PSD.open(file).then(function (psd) {
   var fileString = '<div class="container">\n';
 
