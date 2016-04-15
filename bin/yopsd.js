@@ -74,9 +74,8 @@ function extractTextFromFile(filepath, psdPromise, cb) {
 // extract PNG from PSD file
 function extractPngFromFile(filepath, psdPromise, cb) {
   psdPromise.then(function(psd) {
-    psd.tree().export().children.forEach(function(child) {
-      console.log("hello");
-    });
+      console.log("extractPngFromFile")
+      console.log(psd.tree().export());
   });
 }
 
@@ -169,6 +168,28 @@ function PSDLayer(path, element) {
   var self = this;
 
   return {
+    extractText: function() {
+      var text = [];
+
+      if (typeof element.text !== 'undefined' && element.text !== undefined) {
+        text.push({
+          path: self.path,
+          text: element.text.value || null,
+        });
+      }
+
+      if (typeof(element.children) !== 'undefined') {
+        element.children.forEach(function(child) {
+          var layer = new PSDLayer(self.path, child);
+          var childText = layer.extractText();
+          childText.forEach(function(t) {
+            text.push(t);
+          });
+        });
+      }
+
+      return text;
+    },
     extractText: function() {
       var text = [];
 
