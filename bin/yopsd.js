@@ -77,9 +77,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
 
   var fileText = filepath.replace(/\.psd$/, '.php');
   var fileString = '';
-
   
-
   psdPromise.then(function(psd) {
 
     console.log("mkdirp");
