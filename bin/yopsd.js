@@ -84,7 +84,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
     mkdirp(filepath, function(err) { 
 
     });
-console.log("mkdirp-post");
+    console.log("mkdirp-post");
 
     psd.image.saveAsPng('./output.png');
     console.log(psd.tree().export());
