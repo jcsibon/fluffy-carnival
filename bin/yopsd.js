@@ -4,6 +4,9 @@ var PSD = require('psd');
 
 var file = process.argv[2] || './examples/images/example.psd';
 var start = new Date();
+var fileString = '<div class="container">\n';
+
+
 
 PSD.open(file).then(function (psd) {
   psd.tree().descendants().forEach(function (node) {
@@ -13,6 +16,8 @@ PSD.open(file).then(function (psd) {
       console.log(err.stack);
     });
   });
+
+  fileString += '</div>';
 }).then(function () {
   console.log("Finished in " + ((new Date()) - start) + "ms");
 }).catch(function (err) {
