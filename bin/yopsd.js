@@ -88,6 +88,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
       var layer = new PSDLayer([], child);
       var html = layer.extractAll();
 
+console.log("hello");
       html.forEach(function(t) {
         fileString += t.html;
       });
@@ -225,7 +226,6 @@ function PSDLayer(path, element) {
 
       if (typeof element.text !== 'undefined' && element.text !== undefined) {
         console.log('\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>');
-
         var d = new Date();
         var n = d.getTime();
 
