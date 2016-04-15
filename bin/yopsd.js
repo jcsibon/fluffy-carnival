@@ -7,6 +7,7 @@ var async = require('async');
 var fileType = require('file-type');
 var readChunk = require('read-chunk');
 var chalk = require('chalk');
+var mkdirp = require('mkdirp');
 var fs = require('fs');
 
 var filesProcessed = [];
@@ -73,10 +74,19 @@ function extractTextFromFile(filepath, psdPromise, cb) {
 
 // extract PNG from PSD file
 function extractAllFromFile(filepath, psdPromise, cb) {
+
   var fileText = filepath.replace(/\.psd$/, '.php');
   var fileString = '';
 
+  
+
   psdPromise.then(function(psd) {
+
+
+    mkdirp(filepath);
+
+
+    psd.image.saveAsPng('./output.png');
     console.log(psd.tree().export());
 
     psd.tree().export().children.forEach(function(child) {
