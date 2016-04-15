@@ -72,10 +72,33 @@ function extractTextFromFile(filepath, psdPromise, cb) {
 }
 
 // extract PNG from PSD file
-function extractPngFromFile(filepath, psdPromise, cb) {
+function extractAllFromFile(filepath, psdPromise, cb) {
+  var fileText = filepath.replace(/\.psd$/, '.php');
+  var fileString = '';
+
+  console.log(psd.tree().export());
+
   psdPromise.then(function(psd) {
-      console.log("extractPngFromFile")
-      console.log(psd.tree().export());
+    psd.tree().export().children.forEach(function(child) {
+
+      var layer = new PSDLayer([], child);
+      var html = layer.extractAll();
+
+
+    });
+    
+    /*
+    fs.writeFile(fileText, fileString, function(err) {
+      if (err) {
+        console.log(chalk.red.bold("Error while saving %s"), fileText);
+        return cb(err);
+      }
+
+      console.log(chalk.gray("Text saved to %s"), fileText);
+      filesProcessed.push(fileText);
+      cb(null, fileText);
+    });
+    */
   });
 }
 
@@ -190,10 +213,12 @@ function PSDLayer(path, element) {
 
       return text;
     },
-    extractText: function() {
+    extractAll: function() {
       var text = [];
 
       if (typeof element.text !== 'undefined' && element.text !== undefined) {
+        console.log('\n<p>' + t.text.replace(/\r/g, '\n') + '</p>');
+
         text.push({
           path: self.path,
           text: element.text.value || null,
@@ -203,7 +228,7 @@ function PSDLayer(path, element) {
       if (typeof(element.children) !== 'undefined') {
         element.children.forEach(function(child) {
           var layer = new PSDLayer(self.path, child);
-          var childText = layer.extractText();
+          var childText = layer.extractAll();
           childText.forEach(function(t) {
             text.push(t);
           });
