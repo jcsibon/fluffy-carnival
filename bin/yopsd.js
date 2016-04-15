@@ -231,7 +231,7 @@ function PSDLayer(path, element) {
         var d = new Date();
         var n = d.getTime();
 
-        element.saveAsPng('/Users/jcsibon/Sites/Projets/gergovie/gergovie/.lutece/sources/' + n + '.png');
+        element.image.saveAsPng('/Users/jcsibon/Sites/Projets/gergovie/gergovie/.lutece/sources/' + n + '.png');
 
         /*
         filepath.replace(/\.psd$/, n + '.png'));
