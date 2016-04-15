@@ -231,7 +231,21 @@ function PSDLayer(path, element) {
         var n = d.getTime();
 
         console.log("yo");
-        console.log(self.image);
+        console.log({
+          path: element.path,
+          visible: element.visible,
+          opacity: element.opacity,
+          blendingMode: element.blendingMode,
+          name: element.name,
+          left: element.left,
+          right: element.right,
+          top: element.top,
+          bottom: element.bottom,
+          height: element.height,
+          width: element.width,
+          html: '\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>',
+//        text: element.text.value || null,
+        });
         console.log("yop");
         //.saveAsPng('/Users/jcsibon/Sites/Projets/gergovie/gergovie/.lutece/sources/' + n + '.png');
 
@@ -240,17 +254,17 @@ function PSDLayer(path, element) {
         */
 
         html.push({
-          path: self.path,
-          visible: self.visible,
-          opacity: self.opacity,
-          blendingMode: self.blendingMode,
-          name: self.name,
-          left: self.left,
-          right: self.right,
-          top: self.top,
-          bottom: self.bottom,
-          height: self.height,
-          width: self.width,
+          path: element.path,
+          visible: element.visible,
+          opacity: element.opacity,
+          blendingMode: element.blendingMode,
+          name: element.name,
+          left: element.left,
+          right: element.right,
+          top: element.top,
+          bottom: element.bottom,
+          height: element.height,
+          width: element.width,
           html: '\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>',
 //        text: element.text.value || null,
         });
