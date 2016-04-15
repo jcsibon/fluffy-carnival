@@ -75,16 +75,14 @@ function extractTextFromFile(filepath, psdPromise, cb) {
 // extract PNG from PSD file
 function extractAllFromFile(filepath, psdPromise, cb) {
 
-  var fileText = filepath.replace(/\.psd$/, '.php');
-  var fileString = '';
+  var fileHtml = filepath.replace(/\.psd$/, '/index.php');
+  var fileString = '<div class="container">\n';
   
   psdPromise.then(function(psd) {
 
-    console.log("mkdirp");
-    console.log(filepath);
-    mkdirp(filepath.replace(/\.psd$/, ''));
-    console.log("mkdirp-post");
-
+    mkdirp(filepath.replace(/\.psd$/, ''), function(err) { 
+      console.log(chalk.red.bold(err));
+    });
 
     console.log(psd.tree().export());
     console.log("export");
@@ -95,18 +93,19 @@ function extractAllFromFile(filepath, psdPromise, cb) {
       var html = layer.extractAll();
     });
     */    
-    /*
-    fs.writeFile(fileText, fileString, function(err) {
+
+    fileString += '</div>';
+
+    fs.writeFile(fileHtml, fileString, function(err) {
       if (err) {
-        console.log(chalk.red.bold("Error while saving %s"), fileText);
+        console.log(chalk.red.bold("Error while saving %s"), fileHtml);
         return cb(err);
       }
 
-      console.log(chalk.gray("Text saved to %s"), fileText);
-      filesProcessed.push(fileText);
+      console.log(chalk.gray("HTML saved to %s"), fileHtml);
+      filesProcessed.push(fileHtml);
       cb(null, fileText);
     });
-    */
   });
 }
 
