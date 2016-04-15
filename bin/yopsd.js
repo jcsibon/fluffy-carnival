@@ -52,10 +52,7 @@ function extractTextFromFile(filepath, psdPromise, cb) {
       var text = layer.extractText();
 
       text.forEach(function(t) {
-        fileString += '\n\n' + '---';
-        fileString += '\n' + t.path.join(' > ');
-        fileString += '\n' + '---';
-        fileString += '\n\n' + t.text.replace(/\r/g, '\n');
+        fileString += '\n<p>' + t.text.replace(/\r/g, '\n') + '</p>';
       });
     });
 
