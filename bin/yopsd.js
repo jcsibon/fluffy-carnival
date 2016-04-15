@@ -82,7 +82,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
 
     console.log("mkdirp");
     console.log(filepath);
-    mkdirp(filepath, function(err) { 
+    mkdirp(filepath.replace(/\.psd$/, ''), function(err) { 
       console.log(filepath);
     });
     console.log("mkdirp-post");
