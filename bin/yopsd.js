@@ -230,8 +230,9 @@ function PSDLayer(path, element) {
         var d = new Date();
         var n = d.getTime();
 
+        console.log("yo");
         console.log(element.image);
-
+        console.log("yop");
         //.saveAsPng('/Users/jcsibon/Sites/Projets/gergovie/gergovie/.lutece/sources/' + n + '.png');
 
         /*
