@@ -8,6 +8,7 @@ var start = new Date();
 PSD.open(file).then(function (psd) {
   psd.tree().descendants().forEach(function (node) {
     if (node.isGroup()) return true;
+    console.log(node.name);
     node.saveAsPng("./output/" + node.name + ".png").catch(function (err) {
       console.log(err.stack);
     });
