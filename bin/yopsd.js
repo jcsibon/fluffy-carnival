@@ -54,6 +54,9 @@ function extractTextFromFile(filepath, psdPromise, cb) {
       console.log(layer);
       var text = layer.extractText();
 
+
+
+
       text.forEach(function(t) {
         fileString += '\n<p>' + t.text.replace(/\r/g, '\n') + '</p>';
       });
@@ -226,25 +229,16 @@ function PSDLayer(path, element) {
       var html = [];
 
       if (typeof element.text !== 'undefined' && element.text !== undefined) {
+
+
+
         console.log('\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>');
         var d = new Date();
         var n = d.getTime();
 
         console.log("yo");
-        console.log({
-          path: element.path,
-          visible: element.visible,
-          opacity: element.opacity,
-          blendingMode: element.blendingMode,
-          name: element.name,
-          left: element.left,
-          right: element.right,
-          top: element.top,
-          bottom: element.bottom,
-          height: element.height,
-          width: element.width,
-          html: '\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>',
-//        text: element.text.value || null,
+        element.saveAsPng("./output/" + node.name + ".png").catch(function (err) {
+          console.log(err.stack);
         });
         console.log("yop");
         //.saveAsPng('/Users/jcsibon/Sites/Projets/gergovie/gergovie/.lutece/sources/' + n + '.png');
