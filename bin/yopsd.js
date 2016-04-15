@@ -22,7 +22,6 @@ program
   .action(processFiles)
   .parse(process.argv);
 
-console.log("hhdfsjk");
 // save PNG
 function convertFile(filepath, psdPromise, cb) {
   var filePng = filepath.replace(/\.psd$/, '.png');
@@ -74,7 +73,7 @@ function extractTextFromFile(filepath, psdPromise, cb) {
 }
 
 // extract PNG from PSD file
-function extractPNGFromFile(filepath, psdPromise, cb) {
+function extractPngFromFile(filepath, psdPromise, cb) {
   psdPromise.then(function(psd) {
     psd.tree().export().children.forEach(function(child) {
       console.log("hello");
