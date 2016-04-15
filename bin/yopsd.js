@@ -83,7 +83,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
     mkdirp(filepath.replace(/\.psd$/, ''), function(err) { 
       console.log(chalk.red.bold(err));
     });
-console.log("hello");
+
 
     psd.tree().export().children.forEach(function(child) {
       var layer = new PSDLayer([], child);
@@ -260,7 +260,7 @@ function PSDLayer(path, element) {
           var layer = new PSDLayer(self.path, child);
           var childText = layer.extractAll();
           childText.forEach(function(t) {
-            text.push(t);
+            html.push(t);
           });
         });
       }
