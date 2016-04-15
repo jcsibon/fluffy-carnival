@@ -83,7 +83,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
   psdPromise.then(function(psd) {
 
     console.log("mkdirp");
-    mkdirp(filepath);, function(err) { 
+    mkdirp(filepath, function(err) { 
 
     });
 console.log("mkdirp-post");
