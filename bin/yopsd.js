@@ -42,13 +42,15 @@ function convertFile(filepath, psdPromise, cb) {
 
 // extract text from PSD file
 function extractTextFromFile(filepath, psdPromise, cb) {
-  var fileText = filepath.replace(/\.psd$/, '.txt');
+  var fileText = filepath.replace(/\.psd$/, '.php');
   var fileString = '';
 
   psdPromise.then(function(psd) {
 
     psd.tree().export().children.forEach(function(child) {
+
       var layer = new PSDLayer([], child);
+      console.log(layer);
       var text = layer.extractText();
 
       text.forEach(function(t) {
