@@ -88,7 +88,7 @@ function extractAllFromFile(filepath, psdPromise, cb) {
 
 
     console.log(psd.tree().export());
-
+    console.log("export");
     /*
     psd.tree().export().children.forEach(function(child) {
 
