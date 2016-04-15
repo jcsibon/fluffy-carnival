@@ -89,14 +89,13 @@ console.log("mkdirp-post");
     psd.image.saveAsPng('./output.png');
     console.log(psd.tree().export());
 
+    /*
     psd.tree().export().children.forEach(function(child) {
 
       var layer = new PSDLayer([], child);
       var html = layer.extractAll();
-
-
     });
-    
+    */    
     /*
     fs.writeFile(fileText, fileString, function(err) {
       if (err) {
