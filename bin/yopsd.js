@@ -87,8 +87,13 @@ function extractAllFromFile(filepath, psdPromise, cb) {
     psd.tree().export().children.forEach(function(child) {
       var layer = new PSDLayer([], child);
       var html = layer.extractAll();
+
+      html.forEach(function(t) {
+        fileString += t.html;
+      });
     });
-  
+
+ 
     fileString += '</div>';
 
     fs.writeFile(fileHtml, fileString, function(err) {
@@ -223,7 +228,7 @@ function PSDLayer(path, element) {
 
         text.push({
           path: self.path,
-          text: '\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>',
+          html: '\n<p>' + element.text.value.replace(/\r/g, '\n') + '</p>',
 //        text: element.text.value || null,
         });
       }
